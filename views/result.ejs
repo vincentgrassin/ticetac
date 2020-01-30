@@ -17,6 +17,7 @@
     <h1 class="title2">Tickets available on DATE</h1>
 
     <%for(i=0;i<journeySearchFront.length;i++) {%>
+<<<<<<< HEAD
 
         <div class="card w-75">
             <div class="card-body">
@@ -33,6 +34,16 @@
 
                 <a href="/search/addTickets?=idTicket=<%=journeySearchFront[i]._id%>" class="btn btn-primary">Ok</a>
             </div>
+=======
+    
+    <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title"><%=journeySearchFront[i].departure%> / <%=journeySearchFront[i].arrival%></h5>
+          <p class="card-text">Train départure <%=journeySearchFront[i].date%> at <%=journeySearchFront[i].departureTime%></p>
+          <p class="card-text"><%=journeySearchFront[i].price%> €</p>
+
+          <a href="/search/addTicket?idTicket=<%=journeySearchFront[i]._id%>" class="btn btn-primary">Ok</a>
+>>>>>>> fdadd2e08544179eea4d50dc1932e37975493252
         </div>
 
         <%}%>

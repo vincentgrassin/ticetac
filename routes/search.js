@@ -8,18 +8,19 @@ var userModel = require('../models/user');
 
 router.get('/',function(req,res,next){
 
+
     res.render('search');
   })
 
 
 router.post('/results',async function(req,res,next){
-
     console.log(req.body);
     var journeySearch = await journeyModel.find({
         departure: req.body.departure,
         arrival: req.body.arrival,
+        date:req.body.date
     });
-    console.log(journeySearch)
+    console.log(req.session.userId);
 
 
     res.render('result', {journeySearchFront: journeySearch} );
@@ -27,7 +28,15 @@ router.post('/results',async function(req,res,next){
 
 
 
-  router.get('/addTickets',function(req,res,next){
+  router.get('/addTicket', async function(req,res,next){
+    console.log("idticket",req.query);
+    console.log("idsession",req.session.userId);
+    var userAdding = await userModel.find({_id: req.session.userId});
+    console.log(userAdding);
+    // userAdding[0].tickets.push(req.query.idticket)
+    // console.log(userAdding[0].tickets);
+
+
 
 
 
