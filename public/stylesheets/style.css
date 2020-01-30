@@ -89,3 +89,12 @@
         justify-content: space-around;
         align-content: space-around;
     }
+    
+    .blackboard {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        margin-right: 250px;
+        margin-left: 250px;
+        margin-top: 150px;
+    }
