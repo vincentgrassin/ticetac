@@ -26,6 +26,8 @@
                         <th scope="col">Date</th>
                         <th scope="col">Departure Time</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Suppr</th>
+
 
                     </tr>
                 </thead>
@@ -38,6 +40,7 @@
                       <td><%=ticketBasket[i].date%></td>
                       <td><%=ticketBasket[i].departureTime%></td>
                       <td><%=ticketBasket[i].price%> €</td>
+                      <td><a href="/search/delete?row=<%=i%>" class="btn btn-primary trash"><i class="fas fa-trash-alt"></i></i></a></td>
           
                     </tr>
                     <%}%>

@@ -25,10 +25,23 @@ router.post('/results',async function(req,res,next){
   })
 
 
+// AFFICHAGE PAGE MON PANIER TICKETS
+router.get('/basket', async function(req,res,next){
+  
+  var total = 0
+  for(i=0;i<req.session.ticketBasket.length;i++){
+      total = total + req.session.ticketBasket[i].price
+  }
+      res.render('mytickets',{ticketBasket:req.session.ticketBasket,total:total});
 
-  // AJOUT AU PANIER
+
+})
+
+
+
+  // AJOUT AU PANIER - RENVOI vers mon panier
   router.get('/addTicket', async function(req,res,next){
-    
+    console.log(req.query.idTicket);
     var ticketAdd = await journeyModel.findById(req.query.idTicket)
     console.log(ticketAdd);
     if(req.session.ticketBasket == undefined) {
@@ -41,18 +54,27 @@ router.post('/results',async function(req,res,next){
     req.session.ticketBasket.push(ticketAdd)
     console.log(req.session.ticketBasket);
 
-    var total = 0
-    for(i=0;i<req.session.ticketBasket.length;i++){
-        total = total + req.session.ticketBasket[i].price
-    }
+    res.redirect('/search/basket');
 
-    res.render('mytickets',{ticketBasket:req.session.ticketBasket,total:total});
+  })
+
+    // DELETE DU PANIER - RENVOI vers mon panier
+  router.get('/delete', async function(req,res,next){
+    console.log('hello')
+    console.log(req.query);
+    req.session.ticketBasket.splice(req.query.row,1);
+    req.session.ticketsBasketId.splice(req.query.row,1);
+
+    res.redirect('/search/basket');
+
   })
 
 
     // CONFIRMATION D'ACHAT
   router.get('/confirm', async function(req,res,next){
- 
+    console.log(req.session.ticketBasket);
+    console.log(req.session.ticketsBasketId);
+
     var userAdding = await userModel.findById(req.session.userId);
     userTicketsInBase = userAdding.tickets.concat(req.session.ticketsBasketId); //étape pas terrible car on colle deux tableaux sans vérifier leur contenu
     var userAdding = await userModel.updateOne(
