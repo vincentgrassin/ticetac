@@ -64,3 +64,28 @@
         color: white;
         padding-left: 480px;
     }
+    
+    .cards {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 50px;
+    }
+    
+    .card-text {
+        font-weight: bold;
+    }
+    
+    .card-text-price {
+        text-align: right;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .card-body {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        align-content: space-around;
+    }
