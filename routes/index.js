@@ -36,10 +36,9 @@ router.post('/sign-up', async function(req, res, next) {
   console.log(userSaved);
   req.session.isLogged = true
   req.session.userId = userSaved._id;
-
-
-
-  res.render('search');}
+  
+  res.redirect('/search');
+}
 
   else {
     req.session.isLogged = false;
@@ -57,7 +56,7 @@ router.post('/sign-in', async function(req, res, next) {
     console.log(req.session.userId);
 
 
-    res.render('search');
+    res.redirect('/search');
 
   }
   else {

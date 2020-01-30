@@ -8,15 +8,17 @@ var userModel = require('../models/user');
 
 router.get('/',function(req,res,next){
 
+
     res.render('search');
   })
 
 
 router.post('/results',async function(req,res,next){
-
+    console.log(req.body);
     var journeySearch = await journeyModel.find({
         departure: req.body.departure,
         arrival: req.body.arrival,
+        date:req.body.date
     });
     console.log(req.session.userId);
 
