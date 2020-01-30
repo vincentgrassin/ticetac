@@ -29,10 +29,10 @@ router.post('/results',async function(req,res,next){
 
 
   router.get('/addTicket', async function(req,res,next){
-    console.log("idticket",req.query);
-    console.log("idsessionfromadd",req.session.userId);
+    // console.log("idticket",req.query);
+    // console.log("idsessionfromadd",req.session.userId);
     var userAdding = await userModel.findById(req.session.userId);
-    console.log("User before update",userAdding);
+    // console.log("User before update",userAdding);
 
    userAdding.tickets.push(req.query.idTicket);
     await userModel.updateOne(
@@ -41,12 +41,12 @@ router.post('/results',async function(req,res,next){
     
      );
 
-    console.log("User after update",userAdding);
-    var userPop = await userModel.findById(req.session.userId).populate('journey').exec();
+    // console.log("User after update",userAdding);
+    var userPop = await userModel.findById(req.session.userId).populate('tickets').exec();
     console.log("afterpopulate",userPop);
+    
 
-
-    res.render('mytickets',{userAdding:userAdding});
+    res.render('mytickets',{userPop:userPop});
   })
 
 
