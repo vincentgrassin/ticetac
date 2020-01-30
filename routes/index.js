@@ -21,19 +21,31 @@ router.get('/', function(req, res, next) {
 router.post('/sign-up', async function(req, res, next) {
   console.log(req.body);
   var newUser = new userModel({
-    tickets:[{type: mongoose.Schema.Types.ObjectId, ref: 'journey'}],
-    firstName: String,
-    lastName: String,
-    email: String,
-    password: String,
+    tickets:[],
+    firstName: req.body.firstnameFromFront,
+    lastName: req.body.lastnameFromFront,
+    email: req.body.emailFromFront,
+    password: req.body.passwordFromFront,
   })
-
   var userSaved = await newUser.save();
 
   console.log(userSaved)
 
-
   res.render('search');
+});
+
+
+router.post('/sign-in', async function(req, res, next) {
+  console.log(req.body);
+  var userAlreadyExist = await userModel.findOne( {email: req.body.emailFromFront, password:req.body.passwordFromFront} )
+  if(userAlreadyExist !== null) {
+    res.render('search');
+
+  }
+  else {
+    res.redirect('/');
+  }
+
 });
 
 
