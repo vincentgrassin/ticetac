@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var journeyModel = require('../models/ticket')
+var journeyModel = require('../models/ticket');
+var userModel = require('../models/user');
 
 
 
@@ -26,7 +27,7 @@ router.post('/results',async function(req,res,next){
 
 
 
-  router.get('/mytickets',function(req,res,next){
+  router.get('/addTickets',function(req,res,next){
 
 
 

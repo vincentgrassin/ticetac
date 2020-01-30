@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var journeyModel = require('../models/ticket')
+var journeyModel = require('../models/ticket');
+var userModel = require('../models/user')
+
 
 
 
@@ -11,8 +13,34 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
+
+
+
+router.post('/sign-up', async function(req, res, next) {
+  console.log(req.body);
+  var newUser = new userModel({
+    tickets:[{type: mongoose.Schema.Types.ObjectId, ref: 'journey'}],
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String,
+  })
+
+  var userSaved = await newUser.save();
+
+  console.log(userSaved)
+
+
+  res.render('search');
+});
+
+
+
+
+
+
 
 
 // Remplissage de la base de donnée, une fois suffit
