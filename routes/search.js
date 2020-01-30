@@ -14,14 +14,14 @@ router.get('/',function(req,res,next){
 
 
 router.post('/results',async function(req,res,next){
-    console.log(req.body);
     var journeySearch = await journeyModel.find({
         departure: req.body.departure,
         arrival: req.body.arrival,
         date:req.body.date
     });
-    console.log(req.session.userId);
-
+    console.log("sessionidfromresult",req.session.userId);
+    var userAdding = await userModel.findById(req.session.userId)
+    console.log('test',userAdding);
 
     res.render('result', {journeySearchFront: journeySearch} );
   })
@@ -30,17 +30,23 @@ router.post('/results',async function(req,res,next){
 
   router.get('/addTicket', async function(req,res,next){
     console.log("idticket",req.query);
-    console.log("idsession",req.session.userId);
-    var userAdding = await userModel.find({_id: req.session.userId});
-    console.log(userAdding);
-    // userAdding[0].tickets.push(req.query.idticket)
-    // console.log(userAdding[0].tickets);
+    console.log("idsessionfromadd",req.session.userId);
+    var userAdding = await userModel.findById(req.session.userId);
+    console.log("User before update",userAdding);
+
+   userAdding.tickets.push(req.query.idTicket);
+    await userModel.updateOne(
+        { _id: req.session.userId},
+        { tickets: userAdding.tickets }
+    
+     );
+
+    console.log("User after update",userAdding);
+    var userPop = await userModel.findById(req.session.userId).populate('journey').exec();
+    console.log("afterpopulate",userPop);
 
 
-
-
-
-    res.render('mytickets');
+    res.render('mytickets',{userAdding:userAdding});
   })
 
 
