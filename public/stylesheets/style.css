@@ -39,3 +39,23 @@ a {
 .navbar-brand {
     text-align: left;
 }
+
+#form1 {
+    display: flex;
+    padding-top: 50px;
+    margin-left: 120px;
+}
+
+.title {
+    color: white;
+    padding-left: 480px;
+}
+
+.btn-go {
+    padding-left: 30px;
+}
+
+.background2 {
+    padding-top: 200px;
+    padding-left: 380px;
+}
