@@ -26,7 +26,7 @@ router.post('/results',async function(req,res,next){
 
 
 
-  router.get('/mytickets',function(req,res,next){
+  router.get('/addTickets',function(req,res,next){
 
 
 
