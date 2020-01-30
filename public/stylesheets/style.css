@@ -6,7 +6,9 @@ body {
 }
 
 a {
-    color: rgb(0, 17, 255);
+    color: rgba(255, 0, 0, 0.685);
+    font-weight: bold;
+    font-size: 20px;
 }
 
 #assets-list {
@@ -17,10 +19,23 @@ a {
 .form-control {
     width: 250px;
     padding-top: 4%;
-    margin-left: 200px;
+    margin-left: 150px;
     text-align: center;
 }
 
 .navbar {
     height: 80px;
+}
+
+.titleForm {
+    color: white;
+    padding-top: 200px;
+}
+
+.form-group {
+    color: white;
+}
+
+.navbar-brand {
+    text-align: left;
 }
