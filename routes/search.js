@@ -98,13 +98,13 @@ router.get('/confirm', async function(req, res, next) {
     if(req.session.isLogged == true) {
 
     var userAdding = await userModel.findById(req.session.userId);
-    console.log("in base",userTicketsInBase)
     console.log("in base",req.session.ticketsBasketId)
 
-    userTicketsInBase = userAdding.tickets.concat(req.session.ticketsBasketId); //étape pas terrible car on colle deux tableaux sans vérifier leur contenu
-    var userAdding = await userModel.updateOne({ _id: req.session.userId }, { tickets: userTicketsInBase }
+    var userTicketsInBase = userAdding.tickets.concat(req.session.ticketsBasketId); //étape pas terrible car on colle deux tableaux sans vérifier leur contenu
+    console.log("in base",userTicketsInBase)
 
-    );
+    var userAdding = await userModel.updateOne({ 
+      _id: req.session.userId }, { tickets: userTicketsInBase });
 
     var userPop = await userModel.findById(req.session.userId).populate('tickets').exec();
     res.render('confirm', { userPop: userPop, ticketBasket: req.session.ticketBasket });
