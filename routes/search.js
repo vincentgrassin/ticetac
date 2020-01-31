@@ -101,8 +101,7 @@ router.get('/basket', async function(req,res,next){
     var previousTrips = [];
 
     for(i=0;i<userCurrent.tickets.length;i++) {
-      console.log("hello")
-      console.log("dateticket",userCurrent.tickets[i].date);
+
       if(userCurrent.tickets[i].date>=comparedDate){
         comingTrips.push(userCurrent.tickets[i])
       }
@@ -115,7 +114,7 @@ router.get('/basket', async function(req,res,next){
     console.log("previous",comingTrips);
 
 
-    res.render('lasttrip', {comingTrips:comingTrips, previousTrips:previousTrips});
+    res.render('lasttrip', {comingTrips:comingTrips, previousTrips:previousTrips, comparedDate:comparedDate});
 
   })
 
