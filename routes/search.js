@@ -89,5 +89,35 @@ router.get('/basket', async function(req,res,next){
   })
 
 
+  router.get('/last-trips', async function(req,res,next){
+
+    console.log("userID",req.session.userId)    
+    var userCurrent = await userModel.findById(req.session.userId).populate('tickets').exec();
+    var comparedDate = new Date("2018-11-23T00:00:00.000Z");
+    console.log(userCurrent);
+    console.log(comparedDate)
+    console.log("tab 0",userCurrent.tickets[0].date)
+    var comingTrips = [];
+    var previousTrips = [];
+
+    for(i=0;i<userCurrent.tickets.length;i++) {
+      console.log("hello")
+      console.log("dateticket",userCurrent.tickets[i].date);
+      if(userCurrent.tickets[i].date>=comparedDate){
+        comingTrips.push(userCurrent.tickets[i])
+      }
+      else {
+        previousTrips.push(userCurrent.tickets[i]);
+      }
+
+    }
+    console.log("coming",comingTrips);
+    console.log("previous",comingTrips);
+
+
+    res.render('lasttrip', {comingTrips:comingTrips, previousTrips:previousTrips});
+
+  })
+
 
 module.exports = router;

@@ -20,6 +20,17 @@ app.use(
   ); 
 
 
+//function
+app.locals.dateFormat = function (date){
+
+  var day = date.getDate();
+  var month = date.getMonth()+1;
+  var year = date.getFullYear();
+  var dateformat = `${day}/${month}/${year}`;
+  return dateformat
+  }
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -17,7 +17,7 @@
 
     <% if(emptySearch==false) {%>
 
-        <h1 class="title2">Tickets available on DATE :</h1>
+        <h1 class="title2">Tickets available on <%=dateFormat(journeySearchFront[0].date)%> :</h1>
 
         <div class=cards>
 
@@ -30,7 +30,7 @@
                                 <%=journeySearchFront[i].arrival%>
                         </h5>
                         <p class="card-text">Train departure
-                            <%=journeySearchFront[i].date%> at
+                            <%=dateFormat(journeySearchFront[i].date)%> at
                                 <%=journeySearchFront[i].departureTime%>
                         </p>
                         <p class="card-text-price">
