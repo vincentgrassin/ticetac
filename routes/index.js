@@ -20,8 +20,6 @@ router.get('/', function(req, res, next) {
 /*  signup. */
 router.post('/sign-up', async function(req, res, next) {
 
-    console.log(req.body);
-
     var userInDatabase = await userModel.findOne({ email: req.body.emailFromFront })
     if (userInDatabase == null) {
 
@@ -33,7 +31,6 @@ router.post('/sign-up', async function(req, res, next) {
             password: req.body.passwordFromFront,
         })
         var userSaved = await newUser.save();
-        console.log(userSaved);
         req.session.isLogged = true
         req.session.userId = userSaved._id;
 
@@ -47,14 +44,11 @@ router.post('/sign-up', async function(req, res, next) {
 /*  sign-in. */
 
 router.post('/sign-in', async function(req, res, next) {
-    console.log("sign-in routessssssssssssssssssssssssssssssssssss")
 
     var userAlreadyExist = await userModel.findOne({ email: req.body.emailFromFront, password: req.body.passwordFromFront })
     if (userAlreadyExist !== null) {
         req.session.userId = userAlreadyExist._id;
         req.session.isLogged = true
-        console.log(req.session.userId);
-
 
         res.redirect('/search');
 
@@ -70,9 +64,7 @@ router.post('/sign-in', async function(req, res, next) {
 
 /*  log-out. */
 router.get('/logout', function(req, res, next) {
-    console.log(req.session.isLogged);
     req.session.isLogged = false;
-    console.log(req.session.isLogged);
 
     res.redirect('/')
 })

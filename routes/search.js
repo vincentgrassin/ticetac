@@ -19,9 +19,13 @@ router.get('/', function(req, res, next) {
 router.post('/results', async function(req, res, next) {
   if(req.session.isLogged == true) {
 
+    console.log(req.body.date);
+    console.log(typeof req.body.date);
+
+
     var journeySearch = await journeyModel.find({
-        departure: req.body.departure,
-        arrival: req.body.arrival,
+        departure: majString(req.body.departure),
+        arrival: majString(req.body.arrival),
         date: req.body.date
     });
     var emptySearch = false;
@@ -42,6 +46,10 @@ router.post('/results', async function(req, res, next) {
 // AFFICHAGE PAGE MON PANIER TICKETS
 router.get('/basket', async function(req, res, next) {
     if(req.session.isLogged == true) {
+    
+    console.log(typeof req.session.ticketBasket[0].date)
+    var date = new Date(req.session.ticketBasket[0].date)
+    console.log(typeof date)
 
     var total = 0
     for (i = 0; i < req.session.ticketBasket.length; i++) {
@@ -60,9 +68,7 @@ router.get('/basket', async function(req, res, next) {
 
 // AJOUT AU PANIER - RENVOI vers mon panier
 router.get('/addTicket', async function(req, res, next) {
-    console.log(req.query.idTicket);
     var ticketAdd = await journeyModel.findById(req.query.idTicket)
-    console.log(ticketAdd);
     if (req.session.ticketBasket == undefined) {
         req.session.ticketBasket = []
         req.session.ticketsBasketId = []
@@ -71,7 +77,6 @@ router.get('/addTicket', async function(req, res, next) {
 
     req.session.ticketsBasketId.push(ticketAdd._id)
     req.session.ticketBasket.push(ticketAdd)
-    console.log(req.session.ticketBasket);
 
     res.redirect('/search/basket');
 
@@ -99,7 +104,6 @@ router.get('/confirm', async function(req, res, next) {
     );
 
     var userPop = await userModel.findById(req.session.userId).populate('tickets').exec();
-    console.log(userPop);
     res.render('confirm', { userPop: userPop, ticketBasket: req.session.ticketBasket });
     }
     else {
@@ -111,12 +115,8 @@ router.get('/confirm', async function(req, res, next) {
 
 router.get('/last-trips', async function(req, res, next) {
 
-    console.log("userID", req.session.userId)
     var userCurrent = await userModel.findById(req.session.userId).populate('tickets').exec();
     var comparedDate = new Date("2018-11-23T00:00:00.000Z");
-    console.log(userCurrent);
-    console.log(comparedDate)
-    console.log("tab 0", userCurrent.tickets[0].date)
     var comingTrips = [];
     var previousTrips = [];
 
@@ -130,12 +130,17 @@ router.get('/last-trips', async function(req, res, next) {
       }
 
     }
-    console.log("coming", comingTrips);
-    console.log("previous", previousTrips);
+
 
     res.render('lasttrip', {comingTrips:comingTrips, previousTrips:previousTrips, comparedDate:comparedDate});
 
 })
 
+
+function majString(a){
+  a = a.toLowerCase();
+  return (a+'').charAt(0).toUpperCase()+a.substr(1);}
+
+majString('test');
 
 module.exports = router;
