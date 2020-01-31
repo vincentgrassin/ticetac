@@ -124,4 +124,8 @@
             flex-direction: row;
             width: 80%;
         }
+        
+        .btn-go {
+            margin-left: 1000px;
+        }
         /* test popup*/
