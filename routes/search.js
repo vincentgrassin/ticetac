@@ -100,10 +100,8 @@ router.get('/confirm', async function(req, res, next) {
     if(req.session.isLogged == true) {
 
     var userAdding = await userModel.findById(req.session.userId);
-    console.log("in base",req.session.ticketsBasketId)
 
     var userTicketsInBase = userAdding.tickets.concat(req.session.ticketsBasketId); //étape pas terrible car on colle deux tableaux sans vérifier leur contenu
-    console.log("in base",userTicketsInBase)
 
     var userAdding = await userModel.updateOne({ 
       _id: req.session.userId }, { tickets: userTicketsInBase });
@@ -112,7 +110,6 @@ router.get('/confirm', async function(req, res, next) {
     
     req.session.ticketsBasketId = [];
     req.session.ticketsBasket = [];
-    console.log("afterconfirm",req.session.ticketsBasketId)
 
     res.render('confirm', { userPop: userPop, ticketBasket: req.session.ticketBasket });
   
