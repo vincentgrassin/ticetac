@@ -47,9 +47,10 @@ router.post('/results', async function(req, res, next) {
 router.get('/basket', async function(req, res, next) {
     if(req.session.isLogged == true) {
     
-    console.log(typeof req.session.ticketBasket[0].date)
     var date = new Date(req.session.ticketBasket[0].date)
-    console.log(typeof date)
+    console.log("affichage panier",req.session.ticketsBasketId);
+    console.log("affichage panier",req.session.ticketsBasket)
+
 
     var total = 0
     for (i = 0; i < req.session.ticketBasket.length; i++) {
@@ -69,7 +70,7 @@ router.get('/basket', async function(req, res, next) {
 // AJOUT AU PANIER - RENVOI vers mon panier
 router.get('/addTicket', async function(req, res, next) {
     var ticketAdd = await journeyModel.findById(req.query.idTicket)
-    if (req.session.ticketBasket == undefined) {
+    if ((req.session.ticketBasket == undefined)||(req.session.ticketBasketId == undefined)) {
         req.session.ticketBasket = []
         req.session.ticketsBasketId = []
 
@@ -77,6 +78,7 @@ router.get('/addTicket', async function(req, res, next) {
 
     req.session.ticketsBasketId.push(ticketAdd._id)
     req.session.ticketBasket.push(ticketAdd)
+    console.log("afteradd",req.session.ticketsBasketId)
 
     res.redirect('/search/basket');
 
@@ -107,7 +109,13 @@ router.get('/confirm', async function(req, res, next) {
       _id: req.session.userId }, { tickets: userTicketsInBase });
 
     var userPop = await userModel.findById(req.session.userId).populate('tickets').exec();
+    
+    req.session.ticketsBasketId = [];
+    req.session.ticketsBasket = [];
+    console.log("afterconfirm",req.session.ticketsBasketId)
+
     res.render('confirm', { userPop: userPop, ticketBasket: req.session.ticketBasket });
+  
     }
     else {
       res.redirect('/');
