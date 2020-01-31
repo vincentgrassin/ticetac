@@ -49,6 +49,7 @@
     .title {
         color: white;
         padding-left: 480px;
+        margin-top: 30px;
     }
     
     .btn-go {
@@ -57,7 +58,7 @@
     
     .background2 {
         padding-top: 200px;
-        padding-left: 380px;
+        padding-left: 50%;
     }
     
     .title2 {
@@ -97,6 +98,8 @@
         margin-right: 250px;
         margin-left: 250px;
         margin-top: 150px;
+        margin-bottom: 0px;
+        font-weight: bold;
     }
     
     .confirm {
@@ -108,8 +111,8 @@
     .total {
         background-color: rgb(255, 170, 170);
     }
-
-
-/* test popup*/
-
-
+    
+    .table {
+        margin-bottom: 0rem;
+    }
+    /* test popup*/
