@@ -12,34 +12,38 @@
 
 </head>
 
+
 <body>
     <%- include('header'); %>
+        <div class="col-12 col-sm-8">
 
-        <h1 class="title">One Way Ticket :</h1>
-        <div class='container'>
-            <div class="row">
-                <form action="/search/results" method="post" id="form1">
+            <h1 class="title">One Way Ticket :</h1>
+            <div class='container'>
+                <div class="row">
+                    <form action="/search/results" method="post" id="form1">
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="departure" name='departure' placeholder="From city">
-                    </div>
 
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="arrival" name='arrival' placeholder="To city">
-                    </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="departure" name='departure' placeholder="From city">
+                        </div>
 
-                    <div class="form-group">
-                        <input type="date" class="form-control" id="date" name='date'>
-                    </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="arrival" name='arrival' placeholder="To city">
+                        </div>
 
-                    <div class="btn-go"><button type="submit" class="btn btn-danger">Go</button>
-                    </div>
+                        <div class="form-group">
+                            <input type="date" class="form-control" id="date" name='date'>
+                        </div>
+
+                        <div class="btn-go"><button type="submit" class="btn btn-danger">Go</button>
 
 
                     </form>
-                </form>
-                <img class="background2" src="/images/landmark.png">
+                    </form>
+                    </div>
+                    <img class="background2" src="/images/landmark.png">
 
+                </div>
             </div>
 
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
