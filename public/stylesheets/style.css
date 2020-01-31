@@ -1,7 +1,6 @@
         body {
             font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
             background: linear-gradient(to bottom, #1e5799 0%, #7db9e8 0%, #2989d8 50%, #207cca 99%);
-            height: 100vh;
         }
         
         a {
@@ -49,6 +48,14 @@
             color: white;
             padding-left: 480px;
             margin-top: 30px;
+        }
+
+        .titleMytrip{
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
         
         .btn-go {
@@ -100,6 +107,21 @@
             margin-bottom: 0px;
             font-weight: bold;
         }
+
+        .formMyTrip{
+            background-color: white;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0px;
+            font-weight: bold;
+        }
+
+        .bloc-voyage{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10%;
+        }
+
         
         .confirm {
             float: right;
