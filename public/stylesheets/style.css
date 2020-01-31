@@ -1,120 +1,127 @@
-    body {
-        font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-        background: linear-gradient(to bottom, #1e5799 0%, #7db9e8 0%, #2989d8 50%, #207cca 99%);
-    }
-    
-    a {
-        color: rgba(255, 0, 0, 0.685);
-        font-weight: bold;
-        font-size: 20px;
-    }
-    
-    #assets-list {
-        display: flex;
-        flex-direction: row-reverse;
-    }
-    
-    .form-control {
-        width: 250px;
-        padding-top: 4%;
-        margin-left: 150px;
-        text-align: center;
-    }
-    
-    .navbar {
-        height: 80px;
-    }
-    
-    .titleForm {
-        color: white;
-        padding-top: 200px;
-    }
-    
-    .form-group {
-        color: white;
-    }
-    
-    .navbar-brand {
-        text-align: left;
-    }
-    
-    #form1 {
-        display: flex;
-        padding-top: 50px;
-        margin-left: 120px;
-    }
-    
-    .title {
-        color: white;
-        padding-left: 480px;
-        margin-top: 30px;
-    }
-    
-    .btn-go {
-        padding-left: 30px;
-    }
-    
-    .background2 {
-        padding-top: 200px;
-        padding-left: 50%;
-    }
-    
-    .title2 {
-        color: white;
-        padding-left: 480px;
-    }
-    
-    .cards {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        padding-top: 50px;
-    }
-    
-    .card-text {
-        font-weight: bold;
-    }
-    
-    .card-text-price {
-        text-align: right;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    
-    .card-body {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        align-content: space-around;
-    }
-    
-    .blackboard {
-        background-color: white;
-        display: flex;
-        align-items: center;
-        margin-right: 250px;
-        margin-left: 250px;
-        margin-top: 150px;
-        margin-bottom: 0px;
-        font-weight: bold;
-    }
-    
-    .confirm {
-        float: right;
-        margin-right: 250px;
-        margin-top: 20px;
-    }
-    
-    .total {
-        background-color: rgb(255, 170, 170);
-    }
-    
-    .table {
-        margin-bottom: 0rem;
-    }
-    
-    .cardspace {
-        margin-bottom: 15px;
-    }
-    /* test popup*/
+        body {
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+            background: linear-gradient(to bottom, #1e5799 0%, #7db9e8 0%, #2989d8 50%, #207cca 99%);
+            height: 100vh;
+        }
+        
+        a {
+            color: rgba(255, 0, 0, 0.685);
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        #assets-list {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        
+        .form-control {
+            width: 250px;
+            padding-top: 4%;
+            margin-left: 150px;
+            text-align: center;
+        }
+        
+        .navbar {
+            height: 80px;
+        }
+        
+        .titleForm {
+            color: white;
+            padding-top: 200px;
+        }
+        
+        .form-group {
+            color: white;
+        }
+        
+        .navbar-brand {
+            text-align: left;
+        }
+        
+        #form1 {
+            display: flex;
+            padding-top: 50px;
+            margin-left: 120px;
+        }
+        
+        .title {
+            color: white;
+            padding-left: 480px;
+            margin-top: 30px;
+        }
+        
+        .btn-go {
+            padding-left: 30px;
+        }
+        
+        .background2 {
+            padding-top: 200px;
+            padding-left: 50%;
+        }
+        
+        .title2 {
+            color: white;
+            padding-left: 480px;
+        }
+        
+        .cards {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 50px;
+        }
+        
+        .card-text {
+            font-weight: bold;
+        }
+        
+        .card-text-price {
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            align-content: space-around;
+        }
+        
+        .blackboard {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            margin-right: 250px;
+            margin-left: 250px;
+            margin-top: 150px;
+            margin-bottom: 0px;
+            font-weight: bold;
+        }
+        
+        .confirm {
+            float: right;
+            margin-right: 250px;
+            margin-top: 20px;
+        }
+        
+        .total {
+            background-color: rgb(255, 170, 170);
+        }
+        
+        .table {
+            margin-bottom: 0rem;
+        }
+        
+        .cardspace {
+            margin-bottom: 15px;
+        }
+        
+        .form1 {
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+        }
+        /* test popup*/
