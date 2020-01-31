@@ -98,3 +98,13 @@
         margin-left: 250px;
         margin-top: 150px;
     }
+    
+    .confirm {
+        float: right;
+        margin-right: 250px;
+        margin-top: 20px;
+    }
+    
+    .total {
+        background-color: rgb(255, 108, 108);
+    }
