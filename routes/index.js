@@ -47,6 +47,7 @@ router.post('/sign-up', async function(req, res, next) {
 /*  sign-in. */
 
 router.post('/sign-in', async function(req, res, next) {
+    console.log("sign-in routessssssssssssssssssssssssssssssssssss")
 
     var userAlreadyExist = await userModel.findOne({ email: req.body.emailFromFront, password: req.body.passwordFromFront })
     if (userAlreadyExist !== null) {
