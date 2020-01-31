@@ -17,24 +17,25 @@
 
         <% if(emptySearch==false) {%>
 
-        <h1 class="title2">Tickets available on <%=dateFormat(journeySearchFront[0].date)%> :</h1>
+            <h1 class="title2">Tickets available on
+                <%=dateFormat(journeySearchFront[0].date)%> :</h1>
 
             <div class=cards>
 
                 <%for(i=0;i<journeySearchFront.length;i++) {%>
 
-                <div class="card w-75">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%=journeySearchFront[i].departure%> /
-                                <%=journeySearchFront[i].arrival%>
-                        </h5>
-                        <p class="card-text">Train departure
-                            <%=dateFormat(journeySearchFront[i].date)%> at
-                                <%=journeySearchFront[i].departureTime%>
-                        </p>
-                        <p class="card-text-price">
-                            <%=journeySearchFront[i].price%> €</p>
+                    <div class="card w-75 cardspace">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=journeySearchFront[i].departure%> /
+                                    <%=journeySearchFront[i].arrival%>
+                            </h5>
+                            <p class="card-text">Train departure
+                                <%=dateFormat(journeySearchFront[i].date)%> at
+                                    <%=journeySearchFront[i].departureTime%>
+                            </p>
+                            <p class="card-text-price">
+                                <%=journeySearchFront[i].price%> €</p>
 
                             <a href="/search/addTicket?idTicket=<%=journeySearchFront[i]._id%>" class="btn btn-danger">Ok</a>
                         </div>
