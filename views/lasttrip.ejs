@@ -15,7 +15,6 @@
 <body>
     <%- include('header'); %>
 
-        <h1 class="title">Last Trips :</h1>
 
         <h2 class="title">Voici vos voyages antérieur à:<%=dateFormat(comparedDate)%> </h2>
 
@@ -32,22 +31,49 @@
                 </tr>
             </thead>
             <tbody>
+                <% for(var i=0;i<previousTrips.length;i++) {%>
+                    <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col"><%=previousTrips[i].departure%> / <%=previousTrips[i].arrival%></th>
+                        <th scope="col"><%=dateFormat(previousTrips[i].date)%></th>
+                        <th scope="col"><%=previousTrips[i].departureTime%></th>
+                        </tr>
+                    <%}%>
 
-                <tr>
-                  <th scope="row">hello</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-      
-                </tr>
             </tbody>
         </table>
 
 
     </div>
 
+    <h2 class="title">Voici vos voyages à venir posterieur au :<%=dateFormat(comparedDate)%> </h2>
 
+    <div class="blackboard">
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">N°</th>
+                <th scope="col">Journey</th>
+                <th scope="col">Date</th>
+                <th scope="col">Departure Time</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0;i<comingTrips.length;i++) {%>
+                <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col"><%=comingTrips[i].departure%> / <%=comingTrips[i].arrival%></th>
+                    <th scope="col"><%=dateFormat(comingTrips[i].date)%></th>
+                    <th scope="col"><%=comingTrips[i].departureTime%></th>
+                    </tr>
+                <%}%>
+
+        </tbody>
+    </table>
+
+    </div>
 
 
 
