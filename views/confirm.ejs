@@ -20,34 +20,44 @@
         <h2 class="title">La réservation est confirmée pour les billets suivants :</h2>
 
         <div class="blackboard">
-        
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">N°</th>
-                    <th scope="col">Journey</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Departure Time</th>
 
-                </tr>
-            </thead>
-            <tbody>
-              <%for(i=0;i<ticketBasket.length;i++) {%>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">N°</th>
+                        <th scope="col">Journey</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Departure Time</th>
 
-                <tr>
-                  <th scope="row"><%=i+1%></th>
-                  <td><%=ticketBasket[i].departure%> / <%=ticketBasket[i].arrival%></td>
-                  <td><%=ticketBasket[i].date%></td>
-                  <td><%=ticketBasket[i].departureTime%></td>
-      
-                </tr>
-                <%}%>
-            </tbody>
-        </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(i=0;i<ticketBasket.length;i++) {%>
+
+                        <tr>
+                            <th scope="row">
+                                <%=i+1%>
+                            </th>
+                            <td>
+                                <%=ticketBasket[i].departure%> /
+                                    <%=ticketBasket[i].arrival%>
+                            </td>
+                            <td>
+                                <%=ticketBasket[i].date%>
+                            </td>
+                            <td>
+                                <%=ticketBasket[i].departureTime%>
+                            </td>
+
+                        </tr>
+                        <%}%>
+                </tbody>
+            </table>
 
 
-    </div>
+        </div>
 
+        <a href="/" class="btn btn-danger confirm">Home</a>
 
 
 
